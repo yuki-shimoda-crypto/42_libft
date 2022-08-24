@@ -6,13 +6,13 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/18 17:15:50 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/24 12:40:05 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_find_trimed(char const *c, char const *set)
+static int	ft_find_trimed(char const *c, char const *set)
 {
 	size_t	i;
 

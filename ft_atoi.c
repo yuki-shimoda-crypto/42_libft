@@ -6,13 +6,13 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/22 12:05:21 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/24 12:38:53 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_over_longlong(long long *num, int *minus, const char *str)
+static int	ft_over_longlong(long long *num, int *minus, const char *str)
 {
 	if (*num > LLONG_MAX / 10 && !(*minus))
 		return (1);
@@ -26,7 +26,7 @@ int	ft_over_longlong(long long *num, int *minus, const char *str)
 	return (0);
 }
 
-int	ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	c = (unsigned char)c;
 	if (c == '\t' || c == '\n' || c == '\v'

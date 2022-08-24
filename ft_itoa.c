@@ -6,13 +6,13 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/21 19:06:15 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/24 12:39:16 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_swap(char *x, char *y)
+static void	ft_swap(char *x, char *y)
 {
 	char	tmp;
 
@@ -21,7 +21,7 @@ void	ft_swap(char *x, char *y)
 	*y = tmp;
 }
 
-void	ft_reverse(char *str, size_t begin, size_t end)
+static void	ft_reverse(char *str, size_t begin, size_t end)
 {
 	while (begin < end)
 		ft_swap(&str[begin++], &str[end--]);

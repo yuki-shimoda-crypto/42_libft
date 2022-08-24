@@ -6,13 +6,13 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/20 15:43:51 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/24 12:41:05 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free(char **ptr, size_t num_ele)
+static void	ft_free(char **ptr, size_t num_ele)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ void	ft_free(char **ptr, size_t num_ele)
 	free(ptr);
 }
 
-char	*ft_write_element(const char *s, size_t begin, size_t end,
+static char	*ft_write_element(const char *s, size_t begin, size_t end,
 		int *malloc_error)
 {
 	size_t	i;
@@ -68,7 +68,7 @@ static	int	ft_process(char **ptr, char const *s, char c, size_t *j)
 	return (0);
 }
 
-size_t	ft_count_elements(const char *s, char c)
+static size_t	ft_count_elements(const char *s, char c)
 {
 	size_t	i;
 	size_t	num_element;
