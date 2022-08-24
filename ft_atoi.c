@@ -6,21 +6,21 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/24 12:38:53 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/24 13:50:23 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_over_longlong(long long *num, int *minus, const char *str)
+static int	ft_over_long(long long *num, int *minus, const char *str)
 {
-	if (*num > LLONG_MAX / 10 && !(*minus))
+	if (*num > LONG_MAX / 10 && !(*minus))
 		return (1);
-	if (*num == LLONG_MAX / 10 && *str - '0' >= LLONG_MAX % 10 && !(*minus))
+	if (*num == LONG_MAX / 10 && *str - '0' >= LONG_MAX % 10 && !(*minus))
 		return (1);
-	if (*num > LLONG_MIN / 10 * -1 && minus)
+	if (*num > LONG_MIN / 10 * -1 && minus)
 		return (1);
-	if (*num == LLONG_MIN / 10 * -1 && *str - '0' >= LLONG_MIN % 10
+	if (*num == LONG_MIN / 10 * -1 && *str - '0' >= LONG_MIN % 10
 		* -1 && minus)
 		return (1);
 	return (0);
@@ -52,10 +52,10 @@ int	ft_atoi(const char *str)
 		i++;
 	while (str[i] != '\0' && ft_isdigit(str[i]))
 	{
-		if (ft_over_longlong(&total, &minus, &str[i]) && !minus)
-			return ((int)(LLONG_MAX));
-		if (ft_over_longlong(&total, &minus, &str[i]) && minus)
-			return ((int)(LLONG_MIN));
+		if (ft_over_long(&total, &minus, &str[i]) && !minus)
+			return ((int)(LONG_MAX));
+		if (ft_over_long(&total, &minus, &str[i]) && minus)
+			return ((int)(LONG_MIN));
 		total = total * 10 + str[i] - '0';
 		i++;
 	}
