@@ -6,13 +6,13 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/24 12:40:05 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/24 12:43:00 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_find_trimed(char const *c, char const *set)
+static int	ft_find_trimmed(char const *c, char const *set)
 {
 	size_t	i;
 
@@ -34,10 +34,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*ptr;
 
 	begin = 0;
-	while (s1[begin] && ft_find_trimed(&s1[begin], set))
+	while (s1[begin] && ft_find_trimmed(&s1[begin], set))
 		begin++;
 	end = ft_strlen(s1);
-	while (begin < end && ft_find_trimed(&s1[end - 1], set))
+	while (begin < end && ft_find_trimmed(&s1[end - 1], set))
 		end--;
 	ptr = (char *)malloc(sizeof(char) * (end - begin));
 	if (ptr == NULL)
