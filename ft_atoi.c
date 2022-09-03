@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/24 13:50:23 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:38:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	ft_atoi(const char *str)
 // 			atoi("-000000000000000000008"));
 // 	printf("%d %d\n", ft_atoi("+000000000000000000008"),
 // 			atoi("+000000000000000000008"));
-	
+
 // 	printf("%ld\n", LONG_MAX);		
 // 	printf("%lld\n", LLONG_MAX);		
 // 	printf("%d\n", atoi("9223372036854775807"));
