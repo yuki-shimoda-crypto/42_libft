@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 10:39:32 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/16 18:52:19 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/07 12:18:30 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	if ('0' <= c && c <= '9')
-		return (1);
-	return (0);
+	return ('0' <= c && c <= '9');
 }
 
 // int	main(void)

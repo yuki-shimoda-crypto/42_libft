@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 15:38:18 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/07 12:11:00 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static int	ft_over_long(long long *num, int *minus, const char *str)
 {
-	if (*num > LONG_MAX / 10 && !(*minus))
+	if (*num > LONG_MAX / 10 && *minus == 1)
 		return (1);
-	if (*num == LONG_MAX / 10 && *str - '0' >= LONG_MAX % 10 && !(*minus))
+	if (*num == LONG_MAX / 10 && *str - '0' >= LONG_MAX % 10 && *minus == 1)
 		return (1);
-	if (*num > LONG_MIN / 10 * -1 && minus)
+	if (*num > LONG_MIN / 10 * -1 && *minus == -1)
 		return (1);
 	if (*num == LONG_MIN / 10 * -1 && *str - '0' >= LONG_MIN % 10
-		* -1 && minus)
+		* -1 && *minus == -1)
 		return (1);
 	return (0);
 }
@@ -41,26 +41,25 @@ int	ft_atoi(const char *str)
 	long long	total;
 	size_t		i;
 
-	minus = 0;
+	minus = 1;
 	total = 0;
 	i = 0;
 	while (str[i] != '\0' && ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-')
-		minus = 1;
+		minus = -1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
+	while (ft_isdigit(str[i]))
 	{
-		if (ft_over_long(&total, &minus, &str[i]) && !minus)
+		if (ft_over_long(&total, &minus, &str[i]) && minus == 1)
 			return ((int)(LONG_MAX));
-		if (ft_over_long(&total, &minus, &str[i]) && minus)
+		if (ft_over_long(&total, &minus, &str[i]) && minus == -1)
 			return ((int)(LONG_MIN));
 		total = total * 10 + str[i] - '0';
 		i++;
 	}
-	if (minus)
-		total *= -1;
+	total *= minus;
 	return ((int)total);
 }
 

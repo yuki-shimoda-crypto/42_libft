@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/16 18:47:35 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/07 12:18:13 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	ft_isascii(int c)
 {
-	if (0 <= c && c <= 0177)
-		return (1);
-	return (0);
+	return (0 <= c && c <= 0177);
 }
 
 // int	main(void)

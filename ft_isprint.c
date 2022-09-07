@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/16 18:47:47 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/07 12:18:54 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	ft_isprint(int c)
 {
-	if (040 <= c && c <= 0176)
-		return (1);
-	return (0);
+	return (040 <= c && c <= 0176);
 }
 
 // int	main(void)
