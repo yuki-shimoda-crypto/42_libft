@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/17 22:24:45 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/15 07:39:38 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,21 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	len_s1;
-	size_t	len_s2;
 	char	*ptr;
+	char	*save;
 
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	ptr = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (ptr == NULL)
+	if (!s1 || !s2)
 		return (NULL);
-	i = 0;
-	while (i < len_s1 + len_s2)
-	{
-		if (i < len_s1)
-			ptr[i] = s1[i];
-		else
-			ptr[i] = s2[i - len_s1];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	ptr = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!ptr)
+		return (NULL);
+	save = ptr;
+	while (*s1)
+		*ptr++ = *s1++;
+	while (*s2)
+		*ptr++ = *s2++;
+	*ptr = 0;
+	return (save);
 }
 
 // int	main(void)

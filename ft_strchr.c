@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/18 15:53:15 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/15 07:36:29 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-	size_t	len_s;
-
-	len_s = ft_strlen(s);
-	i = 0;
-	while (i < len_s + 1)
+	while (*s)
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
 	return (NULL);
 }
-// Plus one to search for '\0'.
 
 // int	main(void)
 // {
