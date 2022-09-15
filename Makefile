@@ -50,8 +50,10 @@ BONUS			=	ft_lstnew.c			\
 BONUS_OBJS		= $(BONUS:.c=.o)
 
 CC				= cc
+
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I libft.h
+
+CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= libft.a
 
