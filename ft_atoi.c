@@ -6,60 +6,50 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/07 12:11:00 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/11 19:42:38 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_over_long(long long *num, int *minus, const char *str)
+static int	ft_check_over(int sign, long ans, char c)
 {
-	if (*num > LONG_MAX / 10 && *minus == 1)
-		return (1);
-	if (*num == LONG_MAX / 10 && *str - '0' >= LONG_MAX % 10 && *minus == 1)
-		return (1);
-	if (*num > LONG_MIN / 10 * -1 && *minus == -1)
-		return (1);
-	if (*num == LONG_MIN / 10 * -1 && *str - '0' >= LONG_MIN % 10
-		* -1 && *minus == -1)
-		return (1);
-	return (0);
-}
+	long	tmp;
 
-static int	ft_isspace(int c)
-{
-	c = (unsigned char)c;
-	if (c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r' || c == ' ')
+	tmp = LONG_MAX / 10;
+	if (sign == 1)
+		c++;
+	if (tmp < ans || (tmp == ans && LONG_MAX % 10 + 1 < c - '0'))
 		return (1);
 	return (0);
 }
 
 int	ft_atoi(const char *str)
 {
-	int			minus;
-	long long	total;
-	size_t		i;
+	int		sign;
+	long	total;
+	size_t	i;
 
-	minus = 1;
+	sign = 1;
 	total = 0;
 	i = 0;
-	while (str[i] != '\0' && ft_isspace(str[i]))
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
 	if (str[i] == '-')
-		minus = -1;
+		sign *= -1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (ft_isdigit(str[i]))
+	while ('0' <= str[i] && str[i] <= '9')
 	{
-		if (ft_over_long(&total, &minus, &str[i]) && minus == 1)
+		if (sign == 1 && ft_check_over(sign, total, str[i]))
 			return ((int)(LONG_MAX));
-		if (ft_over_long(&total, &minus, &str[i]) && minus == -1)
+		if (sign == -1 && ft_check_over(sign, total, str[i]))
 			return ((int)(LONG_MIN));
 		total = total * 10 + str[i] - '0';
 		i++;
 	}
-	total *= minus;
+	total *= sign;
 	return ((int)total);
 }
 
