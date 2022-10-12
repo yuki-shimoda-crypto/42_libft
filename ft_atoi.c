@@ -40,9 +40,9 @@ int	ft_atoi(const char *str)
 		str++;
 	while ('0' <= *str && *str <= '9')
 	{
-		if (sign == 1 && ft_check_over(sign, total, *str
+		if (sign == 1 && ft_check_over(sign, total, *str))
 			return ((int)(LONG_MAX));
-		if (sign == -1 && ft_check_over(sign, total, *str
+		if (sign == -1 && ft_check_over(sign, total, *str))
 			return ((int)(LONG_MIN));
 		total = total * 10 + *str - '0';
 		str++;
