@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/11 19:42:38 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/12 15:59:20y yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,57 @@ int	ft_atoi(const char *str)
 {
 	int		sign;
 	long	total;
-	size_t	i;
 
 	sign = 1;
 	total = 0;
-	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i++;
-	if (str[i] == '-')
+	while (*str == '\t' || *str == '\n' || *str == '\v'
+		|| *str == '\f' || *str == '\r' || *str == ' ')
+		str++;
+	if (*str == '-')
 		sign *= -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while ('0' <= str[i] && str[i] <= '9')
+	if (*str == '-' || *str == '+')
+		str++;
+	while ('0' <= *str && *str <= '9')
 	{
-		if (sign == 1 && ft_check_over(sign, total, str[i]))
+		if (sign == 1 && ft_check_over(sign, total, *str
 			return ((int)(LONG_MAX));
-		if (sign == -1 && ft_check_over(sign, total, str[i]))
+		if (sign == -1 && ft_check_over(sign, total, *str
 			return ((int)(LONG_MIN));
-		total = total * 10 + str[i] - '0';
-		i++;
+		total = total * 10 + *str - '0';
+		str++;
 	}
 	total *= sign;
 	return ((int)total);
 }
 
+// int	ft_atoi(const char *str)
+// {
+// 	int		sign;
+// 	long	total;
+// 	size_t	i;
+
+// 	sign = 1;
+// 	total = 0;
+// 	i = 0;
+// 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+// 		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+// 		i++;
+// 	if (str[i] == '-')
+// 		sign *= -1;
+// 	if (str[i] == '-' || str[i] == '+')
+// 		i++;
+// 	while ('0' <= str[i] && str[i] <= '9')
+// 	{
+// 		if (sign == 1 && ft_check_over(sign, total, str[i]))
+// 			return ((int)(LONG_MAX));
+// 		if (sign == -1 && ft_check_over(sign, total, str[i]))
+// 			return ((int)(LONG_MIN));
+// 		total = total * 10 + str[i] - '0';
+// 		i++;
+// 	}
+// 	total *= sign;
+// 	return ((int)total);
+// }
 // int	main(void)
 // {
 // 	printf("%d %d\n", ft_atoi(""), atoi(""));
