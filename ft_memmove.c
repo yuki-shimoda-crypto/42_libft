@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/18 17:18:31 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:03:30 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*dst_tmp;
-	unsigned char	*src_tmp;
+	char		*d;
+	const char	*s;
 
-	dst_tmp = (unsigned char *)dst;
-	src_tmp = (unsigned char *)src;
-	i = 0;
-	if (src > dst)
+	d = dst;
+	s = src;
+	if (!len || d == s)
+		return (d);
+	if (s < d)
 	{
-		while (i < len)
-		{
-			dst_tmp[i] = src_tmp[i];
-			i++;
-		}
+		while (len--)
+			*(d + len) = *(s + len);
 	}
 	else
 	{
-		while (0 < len)
-		{
-			dst_tmp[len - 1] = src_tmp[len - 1];
-			len--;
-		}
+		while (len--)
+			*d++ = *s++;
 	}
 	return (dst);
 }
+
+// int main(void)
+// {
+// 	printf("%s\n", ft_memmove());
+// 	return (0);/////
+// }
 // size_t has no negative value, so it cannot be compared with a;
 
 // int	main(void)
