@@ -6,12 +6,18 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:04:56 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/13 21:38:51 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/13 22:52:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+int	error_free(char **ret)
+{
+	while (*ret)
+		free(*ret++);
+	return (1);
+}
 
 char	*strndup(const char *s, size_t n)
 {
@@ -35,7 +41,7 @@ char	*strndup(const char *s, size_t n)
 	return (save);
 }
 
-void	make_ret(const char *s, char c, char **ret)
+int	make_ret(const char *s, char c, char **ret)
 {
 	const char	*head;
 	const char	*tail;
@@ -51,12 +57,15 @@ void	make_ret(const char *s, char c, char **ret)
 				s++;
 			tail = s;
 			ret[i] = strndup(head, tail - head);
+			if (!ret[i])
+				return (error_free(ret));
 			ret[i + 1] = NULL;
 			i++;
 		}
 		else
 			s++;
 	}
+	return (0);
 }
 
 size_t	get_word_count(const char *s, char c)
@@ -87,7 +96,8 @@ char **ft_split(const char *s, char c)
 	ret = malloc(sizeof(char *) * (num + 1));
 	if (!ret)
 		return (NULL);
-	make_ret(s, c, ret);
+	if (make_ret(s, c, ret))
+		free(ret);
 	return (ret);
 }
 
