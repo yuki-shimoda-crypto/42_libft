@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:04:56 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/13 21:30:50 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/13 21:38:51 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,19 @@ char **ft_split(const char *s, char c)
 	return (ret);
 }
 
-// int main(int argc, char const *argv[])
-// {
-// 	char	**str;
-// 	size_t	i;
+int main(int argc, char const *argv[])
+{
+	char	**str;
+	size_t	i;
 
-// 	i = 0;
-// 	str = ft_split("a11111a22222aaa3333a44aa5", 'a');
-// 	while (1)
-// 	{
-// 		printf("%s\n", NULL);
-// 		if (!str[i])
-// 			break ;
-// 		i++;
-// 	}
-// 	return (0);
-// }
+	i = 0;
+	str = ft_split("a11111a22222aaa3333a44aa5", 'a');
+	while (1)
+	{
+		if (!str[i])
+			break ;
+		printf("%s\n", str[i]);
+		i++;
+	}
+	return (0);
+}
