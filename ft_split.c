@@ -5,126 +5,236 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/24 12:41:05 by yshimoda         ###   ########.fr       */
+/*   Created: 2022/10/12 22:04:56 by yshimoda          #+#    #+#             */
+/*   Updated: 2022/10/14 13:01:45 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static void	ft_free(char **ptr, size_t num_ele)
+char	*strndup(const char *s, size_t n)
 {
+	char	*ret;
+	char	*save;
 	size_t	i;
 
-	i = 0;
-	while (i < num_ele)
-		free(ptr[i++]);
-	free(ptr);
-}
-
-static char	*ft_write_element(const char *s, size_t begin, size_t end,
-		int *malloc_error)
-{
-	size_t	i;
-	char	*element;
-
-	element = (char *)malloc(sizeof(char) * (end - begin + 1));
-	if (element == NULL)
-	{
-		*malloc_error = 1;
+	// if (s == NULL)
+	// 	return (NULL);
+	ret = malloc(sizeof(char) * (n + 1));
+	if (!ret)
 		return (NULL);
-	}
+	save = ret;
 	i = 0;
-	while (begin < end)
-		element[i++] = s[begin++];
-	element[i] = '\0';
-	return (element);
-}
-
-static	int	ft_process(char **ptr, char const *s, char c, size_t *j)
-{
-	size_t	i;
-	int		begin;
-	int		malloc_error;
-
-	malloc_error = 0;
-	begin = -1;
-	i = 0;
-	while (i < ft_strlen(s) + 1)
+	while (*s && i < n)
 	{
-		if (s[i] != c && begin < 0)
-			begin = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && 0 <= begin)
-		{
-			ptr[*j] = ft_write_element(s, begin, i, &malloc_error);
-			if (malloc_error)
-				return (1);
-			begin = -1;
-			*j += 1;
-		}
+		*ret++ = *s++;
 		i++;
 	}
-	ptr[*j] = 0;
-	return (0);
+	*ret = 0;
+	return (save);
 }
 
-static size_t	ft_count_elements(const char *s, char c)
+void	make_ret(const char *s, char c, char **ret)
 {
+	const char	*head;
+	const char	*tail;
 	size_t	i;
-	size_t	num_element;
-	int		separator;
 
-	num_element = 0;
-	separator = 1;
 	i = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] != c && separator)
+		if (*s != c)
 		{
-			separator = 0;
-			num_element++;
+			head = s;
+			while (*s && *s != c)
+				s++;
+			tail = s;
+			ret[i] = strndup(head, tail - head);
+			ret[i + 1] = NULL;
+			i++;
 		}
-		else if (s[i] == c)
-			separator = 1;
-		i++;
+		else
+			s++;
 	}
-	return (num_element + 1);
 }
 
-char	**ft_split(char const *s, char c)
+size_t	get_word_count(const char *s, char c)
 {
-	char	**ptr;
-	size_t	j;
+	size_t	word_count;
 
-	if (!s)
-		return (NULL);
-	ptr = (char **)malloc(sizeof(char *) * ft_count_elements(s, c));
-	if (ptr == NULL)
-		return (NULL);
-	j = 0;
-	if (ft_process(ptr, s, c, &j))
+	word_count = 0;
+	while (*s)
 	{
-		ft_free(ptr, j);
-		return (NULL);
+		if (*s != c)
+		{
+			word_count++;
+			while (*s && *s != c)
+				s++;
+		}
+		else
+			s++;
 	}
-	return (ptr);
+	return (word_count);
 }
 
-// int	main(void)
+char **ft_split(const char *s, char c)
+{
+	char	**ret;
+	size_t	num;
+
+	num = get_word_count(s, c);
+	ret = malloc(sizeof(char *) * (num + 1));
+	if (!ret)
+		return (NULL);
+	make_ret(s, c, ret);
+	return (ret);
+}
+
+// int main(int argc, char const *argv[])
 // {
-// 	char	**ptr1, **ptr2, **ptr3;
+// 	char	**str;
+// 	size_t	i;
 
-// 	ptr1 = ft_split("hello,world,42,tokyo", ',');
-// 	for (int i = 0; i < 5; i++)
-// 		printf("%s\n", ptr1[i]);
-// 	printf("\n");
-// 	ptr2 = ft_split("AAbbBBbbCC", 'b');
-// 	for (int i = 0; i < 4; i++)
-// 		printf("%s\n", ptr2[i]);
-// 	printf("\n");
-// 	ptr3 = ft_split(",,,hello,,,world,,,42,,,tokyo,,,,", ',');
-// 	for (int i = 0; i < 4; i++)
-// 		printf("%s\n", ptr3[i]);
-
+// 	i = 0;
+// 	str = ft_split("a11111a22222aaa3333a44aa5", 'a');
+// 	while (1)
+// 	{
+// 		if (!str[i])
+// 			break ;
+// 		printf("%s\n", str[i]);
+// 		i++;
+// 	}
 // 	return (0);
 // }
+
+// /* ************************************************************************** */
+// /*                                                                            */
+// /*                                                        :::      ::::::::   */
+// /*   ft_split.c                                         :+:      :+:    :+:   */
+// /*                                                    +:+ +:+         +:+     */
+// /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
+// /*                                                +#+#+#+#+#+   +#+           */
+// /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
+// /*   Updated: 2022/08/24 12:41:05 by yshimoda         ###   ########.fr       */
+// /*                                                                            */
+// /* ************************************************************************** */
+
+// #include "libft.h"
+
+// static void	ft_free(char **ptr, size_t num_ele)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (i < num_ele)
+// 		free(ptr[i++]);
+// 	free(ptr);
+// }
+
+// static char	*ft_write_element(const char *s, size_t begin, size_t end,
+// 		int *malloc_error)
+// {
+// 	size_t	i;
+// 	char	*element;
+
+// 	element = (char *)malloc(sizeof(char) * (end - begin + 1));
+// 	if (element == NULL)
+// 	{
+// 		*malloc_error = 1;
+// 		return (NULL);
+// 	}
+// 	i = 0;
+// 	while (begin < end)
+// 		element[i++] = s[begin++];
+// 	element[i] = '\0';
+// 	return (element);
+// }
+
+// static	int	ft_process(char **ptr, char const *s, char c, size_t *j)
+// {
+// 	size_t	i;
+// 	int		begin;
+// 	int		malloc_error;
+
+// 	malloc_error = 0;
+// 	begin = -1;
+// 	i = 0;
+// 	while (i < ft_strlen(s) + 1)
+// 	{
+// 		if (s[i] != c && begin < 0)
+// 			begin = i;
+// 		else if ((s[i] == c || i == ft_strlen(s)) && 0 <= begin)
+// 		{
+// 			ptr[*j] = ft_write_element(s, begin, i, &malloc_error);
+// 			if (malloc_error)
+// 				return (1);
+// 			begin = -1;
+// 			*j += 1;
+// 		}
+// 		i++;
+// 	}
+// 	ptr[*j] = 0;
+// 	return (0);
+// }
+
+// static size_t	ft_count_elements(const char *s, char c)
+// {
+// 	size_t	i;
+// 	size_t	num_element;
+// 	int		separator;
+
+// 	num_element = 0;
+// 	separator = 1;
+// 	i = 0;
+// 	while (s[i] != '\0')
+// 	{
+// 		if (s[i] != c && separator)
+// 		{
+// 			separator = 0;
+// 			num_element++;
+// 		}
+// 		else if (s[i] == c)
+// 			separator = 1;
+// 		i++;
+// 	}
+// 	return (num_element + 1);
+// }
+
+// char	**ft_split(char const *s, char c)
+// {
+// 	char	**ptr;
+// 	size_t	j;
+
+// 	if (!s)
+// 		return (NULL);
+// 	ptr = (char **)malloc(sizeof(char *) * ft_count_elements(s, c));
+// 	if (ptr == NULL)
+// 		return (NULL);
+// 	j = 0;
+// 	if (ft_process(ptr, s, c, &j))
+// 	{
+// 		ft_free(ptr, j);
+// 		return (NULL);
+// 	}
+// 	return (ptr);
+// }
+
+// // int	main(void)
+// // {
+// // 	char	**ptr1, **ptr2, **ptr3;
+
+// // 	ptr1 = ft_split("hello,world,42,tokyo", ',');
+// // 	for (int i = 0; i < 5; i++)
+// // 		printf("%s\n", ptr1[i]);
+// // 	printf("\n");
+// // 	ptr2 = ft_split("AAbbBBbbCC", 'b');
+// // 	for (int i = 0; i < 4; i++)
+// // 		printf("%s\n", ptr2[i]);
+// // 	printf("\n");
+// // 	ptr3 = ft_split(",,,hello,,,world,,,42,,,tokyo,,,,", ',');
+// // 	for (int i = 0; i < 4; i++)
+// // 		printf("%s\n", ptr3[i]);
+
+// // 	return (0);
+// // }

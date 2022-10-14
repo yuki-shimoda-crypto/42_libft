@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/13 14:34:04 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:02:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,57 +63,57 @@
 // 	return (ptr);
 // }
 
-static ssize_t	ft_pow(ssize_t x, ssize_t y)
-{
-	while (y)
-	{
-		x *= x;
-		y--;
-	}
-	return (x);
-}
+// static ssize_t	ft_pow(ssize_t x, ssize_t y)
+// {
+// 	while (y)
+// 	{
+// 		x *= x;
+// 		y--;
+// 	}
+// 	return (x);
+// }
 
-static int	num_len(int n)
-{
-	int	i;
+// static int	num_len(int n)
+// {
+// 	int	i;
 	
-	i = 0;
-	if (!n)
-		return (1);
-	if (n < 0)
-		i++;
-	while (n)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
-}
+// 	i = 0;
+// 	if (!n)
+// 		return (1);
+// 	if (n < 0)
+// 		i++;
+// 	while (n)
+// 	{
+// 		n /= 10;
+// 		i++;
+// 	}
+// 	return (i);
+// }
 
-char	*ft_itoa(int n)
-{
-	char	*ret;
-	long	num;
-	int		n_len;
+// char	*ft_itoa(int n)
+// {
+// 	char	*ret;
+// 	long	num;
+// 	int		n_len;
 
-	num = n;
-	n_len = num_len(n);
-	ret = malloc(sizeof(int) * (n_len + 1));
-	if (!ret)
-		return (NULL);
-	if (n < 0)
-	{
-		*ret++ = '-';
-		n_len--;
-	}
-	while (n_len)
-	{
-		*ret++ = n % (10, n_len) + '0';
-		n_len--;
-	}
-	return (ret);
+// 	num = n;
+// 	n_len = num_len(n);
+// 	ret = malloc(sizeof(int) * (n_len + 1));
+// 	if (!ret)
+// 		return (NULL);
+// 	if (n < 0)
+// 	{
+// 		*ret++ = '-';
+// 		n_len--;
+// 	}
+// 	while (n_len)
+// 	{
+// 		*ret++ = n % (10, n_len) + '0';
+// 		n_len--;
+// 	}
+// 	return (ret);
 
-}
+// }
 
 // int	main(void)
 // {
@@ -136,13 +136,13 @@ char	*ft_itoa(int n)
 // 	return (0);
 // }
 
-#include <stdio.h>
-int main(void)
-{
-	printf("%zu\n", ft_itoa(0));
-	printf("%zu\n", num_len(100));
-	printf("%zu\n", num_len(-100));
-	printf("%zu\n", num_len(INT_MAX));
-	printf("%zu\n", num_len(INT_MIN));
-	return (0);
-}
+// #include <stdio.h>
+// int main(void)
+// {
+// 	printf("%zu\n", ft_itoa(0));
+// 	printf("%zu\n", num_len(100));
+// 	printf("%zu\n", num_len(-100));
+// 	printf("%zu\n", num_len(INT_MAX));
+// 	printf("%zu\n", num_len(INT_MIN));
+// 	return (0);
+// }
