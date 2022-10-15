@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/15 00:03:20 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/15 15:51:29 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ char	*ft_strrchr(const char *s, int c)
 		if (str == s)
 			return (NULL);
 		str--;
-	}
-	
-	while (0 < len_s)
-	{
-		if (s[len_s - 1] == (char)c)
-			return ((char *)(s + len_s - 1));
-		len_s--;
 	}
 	return (NULL);
 }
