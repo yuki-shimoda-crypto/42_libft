@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/18 12:55:40 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/14 23:48:43 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,3 @@ int	ft_toupper(int c)
 		return (c - ('a' - 'A'));
 	return (c);
 }
-
-// int	main(void)
-// {
-// 	for (int i = 0; i < 512; i++)
-// 		printf("%d %d\n", ft_toupper(i), toupper(i));
-// 	return (0);
-// }
