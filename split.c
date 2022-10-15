@@ -6,20 +6,20 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:04:56 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/13 22:52:18 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/15 15:29:40 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	error_free(char **ret)
+static int	error_free(char **ret)
 {
 	while (*ret)
 		free(*ret++);
 	return (1);
 }
 
-char	*strndup(const char *s, size_t n)
+static char	*strndup(const char *s, size_t n)
 {
 	char	*ret;
 	char	*save;
@@ -41,7 +41,7 @@ char	*strndup(const char *s, size_t n)
 	return (save);
 }
 
-int	make_ret(const char *s, char c, char **ret)
+static int	make_ret(const char *s, char c, char **ret)
 {
 	const char	*head;
 	const char	*tail;
@@ -68,7 +68,7 @@ int	make_ret(const char *s, char c, char **ret)
 	return (0);
 }
 
-size_t	get_word_count(const char *s, char c)
+static size_t	get_word_count(const char *s, char c)
 {
 	size_t	word_count;
 
@@ -101,19 +101,19 @@ char **ft_split(const char *s, char c)
 	return (ret);
 }
 
-int main(int argc, char const *argv[])
-{
-	char	**str;
-	size_t	i;
+// int main(int argc, char const *argv[])
+// {
+// 	char	**str;
+// 	size_t	i;
 
-	i = 0;
-	str = ft_split("a11111a22222aaa3333a44aa5", 'a');
-	while (1)
-	{
-		if (!str[i])
-			break ;
-		printf("%s\n", str[i]);
-		i++;
-	}
-	return (0);
-}
+// 	i = 0;
+// 	str = ft_split("a11111a22222aaa3333a44aa5", 'a');
+// 	while (1)
+// 	{
+// 		if (!str[i])
+// 			break ;
+// 		printf("%s\n", str[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 22:04:56 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/14 23:46:10 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/15 15:30:43 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ char **ft_split(const char *s, char c)
 	return (ret);
 }
 
-int main(int argc, char const *argv[])
-{
-	/* code */
-	return 0;
-}
+// int main(int argc, char const *argv[])
+// {
+// 	/* code */
+// 	return 0;
+// }
