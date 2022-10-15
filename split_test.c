@@ -107,23 +107,3 @@ char	**split(char *s, char c)
 		free(ret);
 	return (ret);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	char	**str;
-// 	int		i;
-// 	// printf("%zu\n", word_count("a11a22aaaaaa3a4a", 'a'));
-// 	// printf("%s\n", ft_strndup("123456", 3));
-// 	str = split("1a22aaaaaa3a4a", 'a');
-// 	i = 0;
-// 	while (1)
-// 	{
-// 		printf("%s\n", str[i]);
-// 		if (!str[i])
-// 			break ;
-// 		i++;
-// 	}
-// 	return (0);
-// }
