@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	len_s;
 	char	*ptr;
 
+	if (!s)
+		return (NULL);
 	len_s = ft_strlen(s);
 	if (len_s < len)
 		len = len_s;
