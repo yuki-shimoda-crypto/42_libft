@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:25:55 by yshimoda          #+#    #+#              #
-#    Updated: 2022/10/24 17:10:08 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/10/24 19:39:44 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ PRINTF_SRCS		=	ft_printf/ft_printf.c	\
 					ft_printf/ft_put_str.c
 					
 OBJDIR			=	objs
-SRCS			=	$(M_SRCS) $(B_OBJS) $(EXTRA_SRCS) $(PRINTF_SRCS)
+SRCS			=	$(M_SRCS) $(B_SRCS) $(EXTRA_SRCS) $(PRINTF_SRCS)
 OBJS			=	$(SRCS:%.c=$(OBJDIR)/%.o)
 
 all:			$(NAME)
