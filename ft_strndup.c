@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/24 10:16:08 by yshimoda         ###   ########.fr       */
+/*   Created: 2022/10/24 10:00:17 by yshimoda          #+#    #+#             */
+/*   Updated: 2022/10/24 10:01:18 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strndup(char const *s, size_t len)
 {
-	ft_memset(s, 0, n);
+	char	*tmp;
+	char	*save;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	tmp = malloc(len + 1);
+	if (!tmp)
+		return (NULL);
+	save = tmp;
+	i = 0;
+	while (i < len && *s)
+	{
+		*tmp++ = *s++;
+		i++;
+	}
+	*tmp = '\0';
+	return (save);
 }

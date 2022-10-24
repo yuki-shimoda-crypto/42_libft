@@ -32,7 +32,8 @@ SRCS			=	ft_isalpha.c		\
 					ft_putstr_fd.c		\
 					ft_putendl_fd.c		\
 					ft_putnbr_fd.c		\
-					ft_atol.c
+					ft_atol.c			\
+					ft_strndup.c			
 
 
 					
@@ -58,6 +59,10 @@ CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= libft.a
 
+ifdef WITH_BONUS
+	OBJS += $(BONUS_OBJS)
+endif
+
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
@@ -71,7 +76,7 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:		
+				make WITH_BONUS=1
 
 .PHONY:			all clean fclean re bonus

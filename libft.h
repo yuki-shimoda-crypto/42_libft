@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 15:22:37 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/19 19:41:10 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:01:32 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 long				ft_atol(const char *str);
+char				*ft_strndup(char const *s, size_t len);
 
 #endif

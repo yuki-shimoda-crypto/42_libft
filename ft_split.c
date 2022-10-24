@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 08:43:11 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/24 08:43:14 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:08:26 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,6 @@ static char	**ft_free(char **ret, size_t len)
 	}
 	free(ret);
 	return (NULL);
-}
-
-static char	*ft_strndup(char const *s, size_t len)
-{
-	char	*tmp;
-	char	*save;
-	size_t	i;
-
-	if (!s)
-		return (NULL);
-	tmp = malloc(len + 1);
-	if (!tmp)
-		return (NULL);
-	save = tmp;
-	i = 0;
-	while (i < len && *s)
-	{
-		*tmp++ = *s++;
-		i++;
-	}
-	*tmp = '\0';
-	return (save);
 }
 
 static char	**make_ret(char const *s, char c, char **ret)

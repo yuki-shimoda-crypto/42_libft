@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/15 07:39:38 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:48:19 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	*ptr = 0;
 	return (save);
 }
-
-// int	main(void)
-// {
-// 	printf("%s\t%s\n", ft_strjoin("hello", "world"), "helloworld");
-// 	printf("%s\t%s\n", ft_strjoin("", "world"), "world");
-// 	printf("%s\t%s\n", ft_strjoin("hello", ""), "hello");
-// 	printf("%s\t%s\n", ft_strjoin("", ""), "");
-// 	return (0);
-// }

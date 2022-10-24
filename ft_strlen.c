@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/16 19:10:42 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:48:38 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-// int	main(void)
-// {
-// 	char str1[] = "";
-// 	char str2[] = "world!";
-// 	printf("%lu\n", ft_strlen(str1));
-// 	printf("%lu\n", ft_strlen(str2));
-// 	return (0);
-// }

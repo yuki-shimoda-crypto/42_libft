@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/21 19:03:20 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:48:42 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-
-// char	ft_plusone(unsigned int i, char c)
-// {
-// 	return (1 + c);
-// }
-
-// char	ft_plusi(unsigned int i, char c)
-// {
-// 	return (i + c);
-// }
-
-// int	main(void)
-// {
-// 	printf("%s\n", ft_strmapi("abcdefg", ft_plusone));
-// 	printf("%s\n", ft_strmapi("abcdefg", ft_plusi));
-// 	printf("%s\n", ft_strmapi("abcdefg", NULL));
-// 	printf("%s\n", ft_strmapi("", ft_plusi));
-// 	return (0);
-// }

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/24 07:45:13 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:49:42 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-// char	*ft_strrchr(const char *s, int c)
-// {
-// 	size_t	len_s;
-
-// 	len_s = ft_strlen(s) + 1;
-// 	while (0 < len_s)
-// 	{
-// 		if (s[len_s - 1] == (char)c)
-// 			return ((char *)(s + len_s - 1));
-// 		len_s--;
-// 	}
-// 	return (NULL);
-// }

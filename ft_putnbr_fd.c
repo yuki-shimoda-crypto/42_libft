@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:14:10 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/17 15:47:16 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:25:50 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(num % 10, fd);
 	}
 }
-
-// int	main(void)
-// {
-// 	ft_putnbr_fd(123, 1);
-// 	printf("\n");
-// 	ft_putnbr_fd(0, 1);
-// 	return (0);
-// }

@@ -35,24 +35,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-// int	main(void)
-// {
-// 	char *s = "libft-test-tokyo";
-// 	printf("%s\n%s\n\n", ft_substr(s, 0, 100), s);
-// 	printf("%s\n%s\n\n", ft_substr(s, 5, 100), s + 5);
-// 	printf("%s\n%s\n\n", ft_substr(s, 10, 100), s + 10);
-// 	printf("%s\n%s\n\n", ft_substr(s, 15, 100), s + 15);
-// 	printf("%s\n%s\n\n", ft_substr(s, 20, 100), "");
-// 	printf("%s\n%s\n\n", ft_substr(s, 0, 5), "libft");
-// 	printf("%s\n%s\n\n", ft_substr(s, 5, 5), "-test");
-// 	printf("%s\n%s\n\n", ft_substr(s, 10, 5), "-toky");
-// 	printf("%s\n%s\n\n", ft_substr(s, 15, 5), "o");
-// 	printf("%s\n%s\n\n", ft_substr(s, 20, 5), "");
-// 	printf("%s\n%s\n\n", ft_substr(s, 0, 0), "");
-// 	printf("%s\n%s\n\n", ft_substr(s, 5, 0), "");
-// 	printf("%s\n%s\n\n", ft_substr(s, 10, 0), "");
-// 	printf("%s\n%s\n\n", ft_substr(s, 15, 0), "");
-// 	printf("%s\n%s\n\n", ft_substr(s, 20, 0), "");
-// 	return (0);
-// }
