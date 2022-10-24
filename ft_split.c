@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 08:43:11 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/24 10:08:26 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 10:58:12 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	**make_ret(char const *s, char c, char **ret)
 {
 	char const	*head;
 	char const	*tail;
-	size_t			i;
+	size_t		i;
 
 	i = 0;
 	while (*s)
@@ -58,7 +58,7 @@ static size_t	word_count(char const *s, char c)
 {
 	size_t	words;
 
-	words = 0; 
+	words = 0;
 	while (*s)
 	{
 		if (*s != c)
