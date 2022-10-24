@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:25:55 by yshimoda          #+#    #+#              #
-#    Updated: 2022/10/24 17:08:45 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/10/24 17:10:08 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ $(OBJDIR)/%.o:%.c
 			$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
 clean:			
-				@$(RM) -r $(OBJDIR)
+				@$(RM) -r $(OBJDIR) a.out
 
 fclean:			clean
 				@$(RM) $(NAME)
