@@ -1,3 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/24 12:25:55 by yshimoda          #+#    #+#              #
+#    Updated: 2022/10/24 12:32:08 by yshimoda         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME			=	libft.a
+
+CC				= cc
+CFLAGS			= -Wall -Wextra -Werror
+
+OUTDIR			=	objs
 SRCS			=	ft_isalpha.c		\
 					ft_isdigit.c		\
 					ft_isalnum.c		\
@@ -34,12 +52,7 @@ SRCS			=	ft_isalpha.c		\
 					ft_putnbr_fd.c		\
 					ft_atol.c			\
 					ft_strndup.c			
-
-
-					
-OBJS			= $(SRCS:.c=.o)
-
-BONUS			=	ft_lstnew.c			\
+B_SRCS			=	ft_lstnew.c			\
 					ft_lstadd_front.c	\
 					ft_lstsize.c		\
 					ft_lstlast.c		\
@@ -49,27 +62,23 @@ BONUS			=	ft_lstnew.c			\
 					ft_lstiter.c		\
 					ft_lstmap.c	
 
-BONUS_OBJS		= $(BONUS:.c=.o)
-
-CC				= cc
-
-RM				= rm -f
-
-CFLAGS			= -Wall -Wextra -Werror
-
-NAME			= libft.a
+PRINTF_DIR		=	printf
+PRINTF			=	$(PRINTF_DIR)/libftprintf.a
+					
+OBJS			= $(SRCS:%.c=$(OUTDIR)/%.o)
+B_OBJS			= $(B_SRCS:%.c=$(OUTDIR)/.o)
 
 ifdef WITH_BONUS
-	OBJS += $(BONUS_OBJS)
+	OBJS += $(B_OBJS)
 endif
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) (PRINTF)
 				ar rcs $(NAME) $(OBJS)
 
 clean:			
-				$(RM) $(OBJS) $(BONUS_OBJS)
+				$(RM) $(OBJS) $(B_OBJS)
 
 fclean:			clean
 				$(RM) $(NAME)
