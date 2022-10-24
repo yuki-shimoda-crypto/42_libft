@@ -6,17 +6,16 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:25:55 by yshimoda          #+#    #+#              #
-#    Updated: 2022/10/24 12:32:08 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/10/24 17:08:45 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	libft.a
+CC				=	cc
+CFLAGS			=	-Wall -Wextra -Werror
+INCLUDE			=	-I include
 
-CC				= cc
-CFLAGS			= -Wall -Wextra -Werror
-
-OUTDIR			=	objs
-SRCS			=	ft_isalpha.c		\
+M_SRCS			=	ft_isalpha.c		\
 					ft_isdigit.c		\
 					ft_isalnum.c		\
 					ft_isascii.c		\
@@ -49,9 +48,8 @@ SRCS			=	ft_isalpha.c		\
 					ft_putchar_fd.c		\
 					ft_putstr_fd.c		\
 					ft_putendl_fd.c		\
-					ft_putnbr_fd.c		\
-					ft_atol.c			\
-					ft_strndup.c			
+					ft_putnbr_fd.c
+
 B_SRCS			=	ft_lstnew.c			\
 					ft_lstadd_front.c	\
 					ft_lstsize.c		\
@@ -62,30 +60,50 @@ B_SRCS			=	ft_lstnew.c			\
 					ft_lstiter.c		\
 					ft_lstmap.c	
 
-PRINTF_DIR		=	printf
-PRINTF			=	$(PRINTF_DIR)/libftprintf.a
-					
-OBJS			= $(SRCS:%.c=$(OUTDIR)/%.o)
-B_OBJS			= $(B_SRCS:%.c=$(OUTDIR)/.o)
+EXTRA_SRCS		=	ft_atol.c			\
+					ft_isspace.c		\
+					ft_strndup.c			
 
-ifdef WITH_BONUS
-	OBJS += $(B_OBJS)
-endif
+PRINTF_SRCS		=	ft_printf/ft_printf.c	\
+					ft_printf/ft_put_ptr.c	\
+					ft_printf/ft_put_str.c
+					
+OBJDIR			=	objs
+SRCS			=	$(M_SRCS) $(B_OBJS) $(EXTRA_SRCS) $(PRINTF_SRCS)
+OBJS			=	$(SRCS:%.c=$(OBJDIR)/%.o)
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS) (PRINTF)
+$(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
 
+$(OBJDIR)/%.o:%.c
+			@mkdir -p $(@D)
+			$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
+
 clean:			
-				$(RM) $(OBJS) $(B_OBJS)
+				@$(RM) -r $(OBJDIR)
 
 fclean:			clean
-				$(RM) $(NAME)
+				@$(RM) $(NAME)
 
-re:				fclean $(NAME)
+re:				fclean all
 
-bonus:		
-				make WITH_BONUS=1
+bonus:			all
 
+test:			
+			echo $@
+			echo $(@D)
+			echo $(@F)
+
+test2:
+			echo $<
+			echo $(<D)
+			echo $(<F)
 .PHONY:			all clean fclean re bonus
+
+# ifdef WITH_BONUS
+# 	OBJS += $(B_OBJS)
+# endif
+# bonus:		
+# 				make WITH_BONUS=1

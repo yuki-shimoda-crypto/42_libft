@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_str.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/11 20:56:32 by yshimoda         ###   ########.fr       */
+/*   Created: 2022/09/05 14:07:37 by yshimoda          #+#    #+#             */
+/*   Updated: 2022/10/24 15:01:14 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-ssize_t	ft_put_str(char *str)
-{
-	if (!str)
-		return (write(1, "(null)", 6));
-	return (write(1, str, ft_strlen(str)));
-}
+# include <limits.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include <inttypes.h>
+# define DEC "0123456789"
+# define HEX_UPPER "0123456789ABCDEF"
+# define HEX_LOWER "0123456789abcdef"
 
-ssize_t	ft_put_char(char c)
-{
-	return (write(1, &c, 1));
-}
+int			ft_printf(const char *format, ...);
+ssize_t		ft_put_char(char c);
+ssize_t		ft_put_str(char *str);
+ssize_t		ft_put_ptr(uintptr_t num);
+
+#endif

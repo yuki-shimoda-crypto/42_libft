@@ -6,11 +6,12 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 08:43:11 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/24 10:58:12 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:07:53 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "extra.h"
 
 static char	**ft_free(char **ret, size_t len)
 {
