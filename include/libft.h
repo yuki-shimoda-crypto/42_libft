@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 15:22:37 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/10/24 19:26:59 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:37:33 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 256
+# endif
 
 typedef struct s_list
 {
