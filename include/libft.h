@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 15:22:37 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/08 22:37:33 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:56:47 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 long				ft_atol(const char *str);
 char				*ft_strndup(char const *s, size_t len);
 int					ft_isspace(int c);
+char				*get_next_line(int fd);
 
 #endif

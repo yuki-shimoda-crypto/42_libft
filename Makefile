@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:25:55 by yshimoda          #+#    #+#              #
-#    Updated: 2022/10/24 19:39:44 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/09 14:01:24 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,16 +60,18 @@ B_SRCS			=	ft_lstnew.c			\
 					ft_lstiter.c		\
 					ft_lstmap.c	
 
-EXTRA_SRCS		=	ft_atol.c			\
-					ft_isspace.c		\
-					ft_strndup.c			
-
 PRINTF_SRCS		=	ft_printf/ft_printf.c	\
 					ft_printf/ft_put_ptr.c	\
 					ft_printf/ft_put_str.c
 					
+GNL_SRCS		=	get_next_line/get_next_line.c
+
+EXTRA_SRCS		=	ft_atol.c			\
+					ft_isspace.c		\
+					ft_strndup.c			
+
 OBJDIR			=	objs
-SRCS			=	$(M_SRCS) $(B_SRCS) $(EXTRA_SRCS) $(PRINTF_SRCS)
+SRCS			=	$(M_SRCS) $(B_SRCS) $(PRINTF_SRCS) $(GNL_SRCS) $(EXTRA_SRCS)
 OBJS			=	$(SRCS:%.c=$(OBJDIR)/%.o)
 
 all:			$(NAME)
@@ -78,8 +80,8 @@ $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
 
 $(OBJDIR)/%.o:%.c
-			@mkdir -p $(@D)
-			$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
+				@mkdir -p $(@D)
+				$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
 clean:			
 				@$(RM) -r $(OBJDIR) a.out
@@ -91,15 +93,6 @@ re:				fclean all
 
 bonus:			all
 
-test:			
-			echo $@
-			echo $(@D)
-			echo $(@F)
-
-test2:
-			echo $<
-			echo $(<D)
-			echo $(<F)
 .PHONY:			all clean fclean re bonus
 
 # ifdef WITH_BONUS
