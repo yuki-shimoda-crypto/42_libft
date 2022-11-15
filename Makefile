@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:25:55 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/15 23:32:17 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/11/15 23:35:49 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ GNL_SRCS		=	get_next_line/get_next_line.c
 
 EXTRA_SRCS		=	ft_atol.c			\
 					ft_isspace.c		\
+					ft_ltoa.c			\
 					ft_strjoin_three.c	\
 					ft_strjoin_four.c	\
 					ft_strndup.c			

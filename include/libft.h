@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 15:22:37 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/15 23:28:33 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:35:24 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 long	ft_atol(const char *str);
+char	*ft_ltoa(long n);
 char	*ft_strjoin_three(char const *s1, char const *s2, char const *s3);
 char	*ft_strjoin_four(char const *s1, char const *s2, char const *s3, char const *s4);
-char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strndup(char const *s, size_t len);
 int		ft_isspace(int c);
 char	*get_next_line(int fd);
