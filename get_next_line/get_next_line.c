@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:33:05 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/09 13:50:41 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/11/30 01:53:09 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static char	*ft_readline(int fd, char **line, char *buf, ssize_t *read_size)
 {
 	char		*tmp;
 
+	*read_size = 1;
 	while (1)
 	{
 		tmp = ft_strjoin(*line, buf);
@@ -46,8 +47,8 @@ static char	*ft_readline(int fd, char **line, char *buf, ssize_t *read_size)
 
 char	*get_next_line(int fd)
 {
-	ssize_t		read_size;
 	static char	buf[BUFFER_SIZE + 1ul];
+	ssize_t		read_size;
 	char		*line;
 	char		*tmp;
 	char		*new_line_ptr;
