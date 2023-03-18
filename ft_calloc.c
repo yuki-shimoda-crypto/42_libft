@@ -11,21 +11,31 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <errno.h>
+
+bool	check_overflow(size_t count, size_t size)
+{
+	return (count != 0 && (SIZE_MAX / count) < size);
+}
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
+	size_t	total_size;
 
-	if (!count || !size)
+	if (check_overflow(count, size))
 	{
-		count = 1;
-		size = 1;
+		errno = EOVERFLOW;
+		return (NULL);
 	}
-	if (SIZE_MAX / count < size)
-		return (NULL);
-	ptr = malloc(count * size);
+	total_size = count * size;
+	ptr = malloc(total_size);
 	if (!ptr)
+	{
+		errno = ENOMEM;
 		return (NULL);
-	ft_bzero(ptr, count * size);
+	}
+	ft_memset(ptr, 0, total_size);
 	return (ptr);
 }

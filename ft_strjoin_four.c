@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strjoin_four(char const *s1, char const *s2, char const *s3,
 		char const *s4)

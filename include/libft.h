@@ -13,11 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <limits.h>
-# include <stdint.h>
-# include <stdlib.h>
-# include <unistd.h>
 # include "ft_printf.h"
+# include <stdbool.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 256
