@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:25:55 by yshimoda          #+#    #+#              #
-#    Updated: 2022/11/15 23:35:49 by yshimoda         ###   ########.fr        #
+#    Updated: 2023/05/17 16:27:49 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,11 +71,15 @@ EXTRA_SRCS		=	ft_atol.c			\
 					ft_ltoa.c			\
 					ft_strjoin_three.c	\
 					ft_strjoin_four.c	\
-					ft_strndup.c			
+					ft_strndup.c
 
 OBJDIR			=	objs
 SRCS			=	$(M_SRCS) $(B_SRCS) $(PRINTF_SRCS) $(GNL_SRCS) $(EXTRA_SRCS)
 OBJS			=	$(SRCS:%.c=$(OBJDIR)/%.o)
+
+ifneq ($(shell command -v ccache), )
+CCACHE			=	ccache
+endif
 
 all:			$(NAME)
 
@@ -84,7 +88,7 @@ $(NAME):		$(OBJS)
 
 $(OBJDIR)/%.o:%.c
 				@mkdir -p $(@D)
-				$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
+				$(CCACHE) $(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE)
 
 clean:			
 				@$(RM) -r $(OBJDIR) a.out
