@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:33:05 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/11/30 01:53:09 by yshimoda         ###   ########.fr       */
+/*   Updated: 2023/05/24 21:31:15 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*get_next_line(int fd)
 		return (line);
 	new_line_ptr = ft_strchr(line, '\n');
 	ft_memmove(buf, new_line_ptr + 1, ft_strlen(new_line_ptr));
-	tmp = ft_substr(line, 0, (new_line_ptr + 1) - line);
+	tmp = ft_strndup(line, (new_line_ptr + 1) - line);
 	free(line);
 	if (!tmp)
 		return (NULL);
