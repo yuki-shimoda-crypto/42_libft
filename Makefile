@@ -71,7 +71,8 @@ EXTRA_SRCS		=	ft_atol.c			\
 					ft_ltoa.c			\
 					ft_strjoin_three.c	\
 					ft_strjoin_four.c	\
-					ft_strndup.c
+					ft_strndup.c		\
+					ft_strcmp.c
 
 OBJDIR			=	objs
 SRCS			=	$(M_SRCS) $(B_SRCS) $(PRINTF_SRCS) $(GNL_SRCS) $(EXTRA_SRCS)

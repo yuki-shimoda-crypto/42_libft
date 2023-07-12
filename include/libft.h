@@ -77,5 +77,6 @@ char	*ft_strjoin_four(char const *s1, char const *s2, char const *s3,
 char	*ft_strndup(char const *s, size_t len);
 int		ft_isspace(int c);
 char	*get_next_line(int fd);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
